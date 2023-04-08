@@ -1,0 +1,8 @@
+h1{
+    color: red;
+}
+
+.nom-prenom{
+    display: flex;
+    gap: 20px;
+}

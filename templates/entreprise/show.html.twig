@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Detail de l'employé {% endblock %}
+
+{% block body %}
+
+<h1> {{ entreprise }}</h1>
+
+<p>
+    SIRET : {{entreprise.siret}}<br>
+    Date de création : {{entreprise.dateCreation | date('d-m-Y') }}<br>
+    Adresse : {{entreprise.fullAdress}}<br>
+</p>
+
+<h2> Liste des salariés </h2>
+
+{% if entreprise.employes | length == 0 %}
+
+<p> Pas d'employé dans cette entreprise</p>
+
+{% else %}
+
+{% for employe in entreprise.employes %}
+    <a href="{{ path('show_employe', {id : employe.id})}}">{{ employe }}</a>
+
+    {% endfor %}
+
+{% endif %}
+
+
+{% endblock %}
